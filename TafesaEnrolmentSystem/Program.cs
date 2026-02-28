@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TafesaEnrolmentSystem.Model;
 
 namespace TafesaEnrolmentSystem
 {
@@ -10,6 +11,7 @@ namespace TafesaEnrolmentSystem
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
