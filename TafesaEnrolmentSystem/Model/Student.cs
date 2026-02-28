@@ -12,29 +12,22 @@ namespace TafesaEnrolmentSystem.Model
         public string Program { get; set; }
         public DateTime? DateRegistered{ get; set; }
 
-        //public Enrollment Enrollment { get; set; }
         public List<Enrollment> Enrollments { get; set; }
-       
 
 
+        // StudentID only constructor
+        public Student(string studentID)
+        {
+            StudentID = studentID;
+            Program = "No Program";
+            DateRegistered = DateTime.Now;
+            Enrollments = new List<Enrollment>();
+        }
 
         // no-arg constructor
-        public Student()
+        public Student() : this("No ID")
         {
-            StudentID = "No Code";
-            Program = "No Name";
-            DateRegistered = null;
-            //Enrollment = Enrollment;
-            Enrollments = new List<Enrollment>();
-
         }
-
-        // ToString
-        public override string ToString()
-        {
-            return $"StudentID: {StudentID}, Program: {Program}, Date Registered: {DateRegistered} , Enrollment: {Enrollment}";
-        }
-
 
         // all-arg constructor
         public Student(string studentID, string program, DateTime dateRegistered, Enrollment enrollment)
@@ -42,8 +35,21 @@ namespace TafesaEnrolmentSystem.Model
             StudentID = studentID;
             Program = program;
             DateRegistered = dateRegistered;
-            Enrollment = enrollment;
+            Enrollments = new List<Enrollment>();
 
+        }
+
+
+        // ToString
+        public override string ToString()
+        {
+            // get list of subjects student enrolled in (extract subject names from Enrollments)
+            string subjectsEnrolled = "";
+            foreach (Enrollment e in Enrollments)
+            {
+                subjectsEnrolled += e.Subject.SubjectName + ", ";
+            }
+            return $"StudentID: {StudentID}, Program: {Program} , Date Registered: {DateRegistered}, Enrollments: {subjectsEnrolled}";
         }
 
     }

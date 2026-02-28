@@ -19,7 +19,7 @@ namespace TafesaEnrolmentSystem.Model
         public Address()
         {
             StreetNum = "No Number";
-            StreetName = "No Stree";
+            StreetName = "No Street";
             Suburb = "No Suburb";
             Postcode = "No Postcode";
             State = "No State";
