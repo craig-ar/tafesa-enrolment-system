@@ -10,31 +10,40 @@ namespace TafesaEnrolmentSystem.Model
     {
         public string StudentID { get; set; }
         public string Program { get; set; }
-        public DateTime? DateRegistered{ get; set; }
+        public DateTime DateRegistered{ get; set; }
 
+        // a list of enrollments is used so that a student can enrol in multiple subjects:
         public List<Enrollment> Enrollments { get; set; }
 
 
         // StudentID only constructor
-        public Student(string studentID)
+        public Student(string studentID) :base()
         {
             StudentID = studentID;
             Program = "No Program";
             DateRegistered = DateTime.Now;
+            // an empty list of enrollments is created
             Enrollments = new List<Enrollment>();
+            
         }
 
         // no-arg constructor
+        //  chains to StudentID only constructor
         public Student() : this("No ID")
         {
         }
 
         // all-arg constructor
-        public Student(string studentID, string program, DateTime dateRegistered, Enrollment enrollment)
+        //   Enrolment is not passed through constructor
+        //   (a student can exist without being enrolled in any subjects)
+        
+        public Student(string studentID, string program, DateTime dateRegistered, string name, string email, string phoneNumber, Address address )
+            : base(name, email, phoneNumber, address)
         {
             StudentID = studentID;
             Program = program;
             DateRegistered = dateRegistered;
+            // an empty list of enrollments is created
             Enrollments = new List<Enrollment>();
 
         }
@@ -48,8 +57,9 @@ namespace TafesaEnrolmentSystem.Model
             foreach (Enrollment e in Enrollments)
             {
                 subjectsEnrolled += e.Subject.SubjectName + ", ";
-            }
-            return $"StudentID: {StudentID}, Program: {Program} , Date Registered: {DateRegistered}, Enrollments: {subjectsEnrolled}";
+            }// prints student details in a logical order
+            //   (student ID first, then name & address details, then program, date and enrolments
+            return $"StudentID: {StudentID}, Name: {Name}, Email: {Email}, Phone Number: {PhoneNumber}, Address: {Address}, Program: {Program} , Date Registered: {DateRegistered}, Enrollments: {subjectsEnrolled}";
         }
 
     }

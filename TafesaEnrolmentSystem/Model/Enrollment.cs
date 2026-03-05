@@ -19,7 +19,7 @@ namespace TafesaEnrolmentSystem.Model
         // no-arg constructor
         public Enrollment()
         {
-            DateEnrolled = DateTime.Today;
+            DateEnrolled = DateTime.Now;
             Grade = "Not Graded";
             Semester = 1;
             Subject = new Subject();
@@ -28,7 +28,7 @@ namespace TafesaEnrolmentSystem.Model
         // ToString
         public override string ToString()
         {
-            return $"DateEnrolled: {DateEnrolled}, Grade: {Grade}, Semester: {Semester}, Subject {Subject}";
+            return $"DateEnrolled: {DateEnrolled}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}";
         }
 
 
