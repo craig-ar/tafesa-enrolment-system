@@ -59,7 +59,7 @@ namespace TafesaEnrolmentSystem.Model
                 subjectsEnrolled += e.Subject.SubjectName + ", ";
             }// prints student details in a logical order
             //   (student ID first, then name & address details, then program, date and enrolments
-            return $"StudentID: {StudentID}, Name: {Name}, Email: {Email}, Phone Number: {PhoneNumber}, Address: {Address}, Program: {Program} , Date Registered: {DateRegistered}, Enrollments: {subjectsEnrolled}";
+            return $"StudentID: {StudentID}, Name: {Name}, Email: {Email}, Phone Number: {PhoneNumber}, Address: {Address}, Program: {Program} , Date Registered: {DateRegistered:dd/MM/yyyy}, Enrollments: {subjectsEnrolled}";
         }
 
     }

@@ -28,7 +28,7 @@ namespace TafesaEnrolmentSystem.Model
         // ToString
         public override string ToString()
         {
-            return $"DateEnrolled: {DateEnrolled}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}";
+            return $"DateEnrolled: {DateEnrolled:dd/MM/yyyy}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}";
         }
 
 
