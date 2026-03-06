@@ -8,6 +8,11 @@ namespace TafesaEnrolmentSystem.Model
 {
     public class Address
     {
+        public const string DEFAULT_STREET_NUM = "No Number";
+        public const string DEFAULT_STREET_NAME = "No Street";
+        public const string DEFAULT_SUBURB = "No Suburb";
+        public const string DEFAULT_POSTCODE = "No Postcode";
+        public const string DEFAULT_STATE= "No State";
         public string StreetNum { get; set; }
         public string StreetName { get; set; }
         public string Suburb  { get; set; }
@@ -16,13 +21,19 @@ namespace TafesaEnrolmentSystem.Model
 
 
         // no-arg constructor
-        public Address()
+        public Address() : this (DEFAULT_STREET_NUM, DEFAULT_STREET_NAME, DEFAULT_SUBURB, DEFAULT_POSTCODE, DEFAULT_STATE)
         {
-            StreetNum = "No Number";
-            StreetName = "No Street";
-            Suburb = "No Suburb";
-            Postcode = "No Postcode";
-            State = "No State";
+           
+        }
+
+        // all-arg constructor
+        public Address(string streetNum, string streetName, string suburb, string postcode, string state)
+        {
+            StreetNum = streetNum;
+            StreetName = streetName;
+            Suburb = suburb;
+            Postcode = postcode;
+            State = state;
         }
 
         // ToString
@@ -32,15 +43,7 @@ namespace TafesaEnrolmentSystem.Model
         }
 
 
-        // all-arg constructor
-        public Address(string streetNum, string streetName, string suburb, string postcode, string state)
-        {
-            StreetNum = streetNum;
-            StreetName = streetName;
-            Suburb = suburb;
-            Postcode = postcode;
-            State= state;
-        }
+      
 
     }
 }

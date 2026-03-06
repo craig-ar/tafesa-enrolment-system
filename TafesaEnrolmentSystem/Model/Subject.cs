@@ -8,6 +8,9 @@ namespace TafesaEnrolmentSystem.Model
 {
     public class Subject
     {
+        public const string DEFAULT_SUBJECT_CODE = "No Code";
+        public const string DEFAULT_SUBJECT_NAME = "No Name";
+        public const decimal DEFAULT_SUBJECT_COST = 0;
         public string SubjectCode{ get; set; }
         public string SubjectName{ get; set; }
         public decimal Cost { get; set; }
@@ -15,11 +18,17 @@ namespace TafesaEnrolmentSystem.Model
 
 
         // no-arg constructor
-        public Subject()
+        public Subject() : this (DEFAULT_SUBJECT_CODE, DEFAULT_SUBJECT_NAME, DEFAULT_SUBJECT_COST)
         {
-            SubjectCode = "No Code";
-            SubjectName = "No Name";
-            Cost = 0;
+
+        }
+
+        // all-arg constructor
+        public Subject(string subjectCode, string subjectName, decimal cost)
+        {
+            SubjectCode = subjectCode;
+            SubjectName = subjectName;
+            Cost = cost;
 
         }
 
@@ -30,14 +39,7 @@ namespace TafesaEnrolmentSystem.Model
         }
 
 
-        // all-arg constructor
-        public Subject(string subjectCode, string subjectName, decimal cost)
-        {
-            SubjectCode = subjectCode;
-            SubjectName = subjectName;
-            Cost = cost;
-
-        }
+       
 
     }
 }

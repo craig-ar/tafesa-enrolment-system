@@ -8,6 +8,10 @@ namespace TafesaEnrolmentSystem.Model
 {
     public class Person
     {
+        //constants:
+        public const string DEFAULT_NAME = "No Name";
+        public const string DEFAULT_EMAIL = "No Email";
+        public const string DEFAULT_PHONE = "No Phone Number";
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
@@ -16,21 +20,12 @@ namespace TafesaEnrolmentSystem.Model
 
 
         // no-arg constructor
-        public Person()
+        public Person() : this (DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PHONE, new Address() )
         {
-            Name = "No Name";
-            Email = "No Email";
-            PhoneNumber = "No Phone Number";
-            Address = new Address();
+
         }
 
-        // ToString
-        public override string ToString()
-        {
-            return $"Name: {Name}, Email: {Email}, Phone Number: {PhoneNumber}, Address: {Address}" ;
-        }
-
-
+      
         // all-arg constructor
         public Person(string name, string email, string phoneNumber, Address address)
         {
@@ -38,6 +33,13 @@ namespace TafesaEnrolmentSystem.Model
             Email = email;
             PhoneNumber = phoneNumber;
             Address = address;
+        }
+
+
+        // ToString
+        public override string ToString()
+        {
+            return $"Name: {Name}, Email: {Email}, Phone Number: {PhoneNumber}, Address: {Address}";
         }
 
     }

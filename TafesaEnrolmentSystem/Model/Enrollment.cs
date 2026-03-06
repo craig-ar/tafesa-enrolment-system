@@ -8,7 +8,12 @@ using System.Xml.Linq;
 namespace TafesaEnrolmentSystem.Model
 {
     public class Enrollment
+
     {
+        public const string DEFAULT_GRADE = "Not Graded";
+        public const int DEFAULT_SEMESTER = 1;
+
+
         public DateTime DateEnrolled { get; set; }
         public string Grade { get; set; }
         public int Semester { get; set; }
@@ -17,20 +22,10 @@ namespace TafesaEnrolmentSystem.Model
 
 
         // no-arg constructor
-        public Enrollment()
+        public Enrollment() : this (DateTime.Now, DEFAULT_GRADE, DEFAULT_SEMESTER, new Subject())
         {
-            DateEnrolled = DateTime.Now;
-            Grade = "Not Graded";
-            Semester = 1;
-            Subject = new Subject();
-        }
 
-        // ToString
-        public override string ToString()
-        {
-            return $"DateEnrolled: {DateEnrolled:dd/MM/yyyy}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}";
         }
-
 
         // all-arg constructor
         public Enrollment(DateTime dateEnrolled, string grade, int semester, Subject subject)
@@ -40,5 +35,14 @@ namespace TafesaEnrolmentSystem.Model
             Semester = semester;
             Subject = subject;
         }
+
+        // ToString
+        public override string ToString()
+        {
+            return $"DateEnrolled: {DateEnrolled:dd/MM/yyyy}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}";
+        }
+
+
+        
     }
 }

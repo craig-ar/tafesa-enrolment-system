@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace TafesaEnrolmentSystem.Model
 {
     public class Student : Person
+
     {
+        // constants:
+        public const string DEFAULT_STUDENT_ID = "No ID";
+        public const string DEFAULT_PROGRAM = "No Program";
+
         public string StudentID { get; set; }
         public string Program { get; set; }
         public DateTime DateRegistered{ get; set; }
@@ -17,19 +22,15 @@ namespace TafesaEnrolmentSystem.Model
 
 
         // StudentID only constructor
-        public Student(string studentID) :base()
+        //   chains to all-arg constructor
+        public Student(string studentID) : this(studentID, DEFAULT_PROGRAM, DateTime.Now, DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PHONE, new Address())
         {
-            StudentID = studentID;
-            Program = "No Program";
-            DateRegistered = DateTime.Now;
-            // an empty list of enrollments is created
-            Enrollments = new List<Enrollment>();
-            
+
         }
 
         // no-arg constructor
-        //  chains to StudentID only constructor
-        public Student() : this("No ID")
+        //  chains to all-arg constructor
+        public Student() : this(DEFAULT_STUDENT_ID, DEFAULT_PROGRAM, DateTime.Now, DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PHONE, new Address())
         {
         }
 
@@ -57,9 +58,9 @@ namespace TafesaEnrolmentSystem.Model
             foreach (Enrollment e in Enrollments)
             {
                 subjectsEnrolled += e.Subject.SubjectName + ", ";
-            }// prints student details in a logical order
-            //   (student ID first, then name & address details, then program, date and enrolments
-            return $"StudentID: {StudentID}, Name: {Name}, Email: {Email}, Phone Number: {PhoneNumber}, Address: {Address}, Program: {Program} , Date Registered: {DateRegistered:dd/MM/yyyy}, Enrollments: {subjectsEnrolled}";
+            }
+            // print ToString from Person class and then print student details
+            return base.ToString() + $", StudentID: {StudentID}, Date Registered: {DateRegistered:dd/MM/yyyy}, Enrollments: {subjectsEnrolled}";
         }
 
     }
