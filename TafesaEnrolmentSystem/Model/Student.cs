@@ -60,8 +60,69 @@ namespace TafesaEnrolmentSystem.Model
                 subjectsEnrolled += e.Subject.SubjectName + ", ";
             }
             // print ToString from Person class and then print student details
-            return base.ToString() + $", StudentID: {StudentID}, Date Registered: {DateRegistered:dd/MM/yyyy}, Enrollments: {subjectsEnrolled}";
+            return base.ToString() + $", StudentID: {StudentID}, Program {Program}, Date Registered: {DateRegistered:dd/MM/yyyy}, Enrollments: {subjectsEnrolled}";
         }
 
+        /// <summary>
+        /// determines whether two objects are equal by comparing their StudentID properties
+        /// (overrides the default Equals method)
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>
+        /// True if StudentID's are the same, otherwise returns False
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            //check null object to avoid NullReferenceException
+            if (obj == null)
+                return false;
+            // check that both objects are of the same type
+            if (obj.GetType() != this.GetType())
+                return false;
+            Student student = (Student)obj;
+
+            return this.StudentID == student.StudentID;
+        }
+
+        /// <summary>
+        /// Checks if two Students objects are equal
+        /// </summary>
+        /// <param name="student1"></param>
+        /// <param name="student2"></param>
+        /// <returns>
+        /// True if both Students are equal (same StudentID)
+        /// Otherwise return False
+        /// </returns>
+        public static bool operator ==(Student student1, Student student2)
+        {
+            return object.Equals(student1, student2);
+        }
+
+        /// <summary>
+        /// Checks if two Students objects are not equal
+        /// </summary>
+        /// <param name="student1"></param>
+        /// <param name="student2"></param>
+        /// <returns>
+        /// True if the two students are not equal (different StudentID)
+        /// Otherwise return False
+        /// </returns>
+        public static bool operator !=(Student student1, Student student2)
+        {
+            return !object.Equals(student1, student2);
+        }
+
+        
+
+        /// <summary>
+        /// Overrides hash code
+        /// </summary>
+        /// <returns>
+        /// A hash code for a student based on their StudentID
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return StudentID.GetHashCode();
+        }
     }
 }

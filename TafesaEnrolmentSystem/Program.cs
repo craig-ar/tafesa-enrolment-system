@@ -120,6 +120,32 @@ namespace TafesaEnrolmentSystem
             Console.WriteLine("Print studentID using getter: " + student1.StudentID);
 
 
+            Console.WriteLine("");
+            Console.WriteLine("Test Equals Method:");
+            Student student4 = new Student("111111");
+            Student student5 = new Student("111111");
+            Student student6 = new Student("222222");
+            Console.WriteLine("student4 ID = " + student4.StudentID);
+            Console.WriteLine("student5 ID = " + student5.StudentID);
+            Console.WriteLine("student6 ID = " + student6.StudentID);
+            Console.WriteLine("  student4.Equals(student5) [should return True]: " + student4.Equals(student5));
+            Console.WriteLine("  student4.Equals(student6) [should return False]: " + student4.Equals(student6));
+            Console.WriteLine("  student4.equals(null) [Should return False]: " + student4.Equals(null));
+            Console.WriteLine("  student4.Equals(person1) [should return False]: " + student4.Equals(person1));
+
+            Console.WriteLine("  student4 == student5 [should return True]: " + (student4 == student5));
+            Console.WriteLine("  student4 == student6 [should return False]: " + (student4 == student6));
+            Console.WriteLine("  student4 != student6 [should return True]: " + (student4 != student6));
+            Console.WriteLine("  student4 != student5 [should return False]: " + (student4 != student5));
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Test HashCode Method:");
+            Console.WriteLine("student4 HashCode = " + student4.GetHashCode());
+            Console.WriteLine("student5 HashCode = " + student5.GetHashCode());
+            Console.WriteLine("student6 HashCode = " + student6.GetHashCode());
+
+            
 
         }
     }
