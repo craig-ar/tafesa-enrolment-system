@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TafesaEnrolmentSystem.Model
 {
-    public class Student : Person
+    public class Student : Person, IComparable<Student>
 
     {
         // constants:
@@ -112,7 +112,34 @@ namespace TafesaEnrolmentSystem.Model
             return !object.Equals(student1, student2);
         }
 
-        
+        /// <summary>
+        /// Checks if student1 is less than student2 (based on StudentID)
+        /// </summary>
+        /// <param name="student1"></param>
+        /// <param name="student2"></param>
+        /// <returns>
+        /// true if student1 is less than student 2
+        /// otherwise return false
+        /// </returns>
+        public static bool operator <(Student student1, Student student2)
+        {
+            return student1.CompareTo(student2) < 0;
+        }
+
+        /// <summary>
+        /// Checks if student1 is greater than student2 (based on StudentID)
+        /// </summary>
+        /// <param name="student1"></param>
+        /// <param name="student2"></param>
+        /// <returns>
+        /// true if student1 is greater than student 2
+        /// otherwise return false
+        /// </returns>
+        public static bool operator >(Student student1, Student student2)
+        {
+            return student1.CompareTo(student2) > 0;
+        }
+
 
         /// <summary>
         /// Overrides hash code
@@ -124,5 +151,27 @@ namespace TafesaEnrolmentSystem.Model
         {
             return StudentID.GetHashCode();
         }
+
+        /// <summary>
+        /// compares this student with another student (based on StudentID)
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>
+        /// 0 if both students have same StudentID
+        /// <0 if this.StudentID is less than other.StudentID
+        /// >0 if this.StudentID is greater than other.StudentID 
+        /// </returns>
+        public int CompareTo(Student other)
+        {
+            // checks if other object being passed is null
+            // null.StudentID would cause an exception
+            // a non-null object is considered greater than a null object
+            if (other == null)
+                return 1;
+
+            return this.StudentID.CompareTo(other.StudentID);
+        }
+
+        
     }
 }
