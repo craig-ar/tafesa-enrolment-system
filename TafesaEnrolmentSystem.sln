@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
+VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TafesaEnrolmentSystem", "TafesaEnrolmentSystem\TafesaEnrolmentSystem.csproj", "{51966669-2582-44E6-8471-DA1564F11A2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TafesaEnrolmentSystem.Tests", "TafesaEnrolmentSystem.Tests\TafesaEnrolmentSystem.Tests.csproj", "{84BB86C3-15F0-49FC-84B7-02FB51193458}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{51966669-2582-44E6-8471-DA1564F11A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51966669-2582-44E6-8471-DA1564F11A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51966669-2582-44E6-8471-DA1564F11A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84BB86C3-15F0-49FC-84B7-02FB51193458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BB86C3-15F0-49FC-84B7-02FB51193458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BB86C3-15F0-49FC-84B7-02FB51193458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BB86C3-15F0-49FC-84B7-02FB51193458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
