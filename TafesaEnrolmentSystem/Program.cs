@@ -23,7 +23,7 @@ namespace TafesaEnrolmentSystem
             Console.WriteLine("");
             Console.WriteLine("Test setters/getters (set new values for address1):");
             address1.StreetNum = "50";
-            address1.StreetName= "Currie St";
+            address1.StreetName = "Currie St";
             address1.Suburb = "Adelaide";
             address1.State = "SA";
             address1.Postcode = "5007";
@@ -31,7 +31,7 @@ namespace TafesaEnrolmentSystem
             Console.WriteLine("(print postcode with getter): " + address1.Postcode);
             Console.WriteLine("");
 
-            Console.WriteLine("----------------------------"); 
+            Console.WriteLine("----------------------------");
             Console.WriteLine("TEST SUBJECT CLASS:");
             Console.WriteLine("");
             Console.WriteLine("Test no-arg constructor (subject1)");
@@ -50,7 +50,7 @@ namespace TafesaEnrolmentSystem
             Console.WriteLine("(print subject code with getter): " + subject1.SubjectCode);
             Console.WriteLine("");
 
-            Console.WriteLine("----------------------------"); 
+            Console.WriteLine("----------------------------");
             Console.WriteLine("TEST ENROLLMENT CLASS:");
             Console.WriteLine("");
             Console.WriteLine("Test no-arg constructor(enrollment1)");
@@ -145,8 +145,33 @@ namespace TafesaEnrolmentSystem
             Console.WriteLine("student5 HashCode = " + student5.GetHashCode());
             Console.WriteLine("student6 HashCode = " + student6.GetHashCode());
 
-            
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("TEST LINKED LIST:");
+            Console.WriteLine("");
+
+            SinglyLinkedList<string> list = new SinglyLinkedList<string>();
+
+            // Test AddFirst / AddLast
+            list.AddFirst("two");   // 2
+            list.AddLast("four");    // 2 → 4
+            list.AddFirst("one");   // 1 → 2 → 4
+
+            // Test InsertAtPosition
+            list.InsertAtPosition("four", 2); // 1 → 2 → 3 → 4
+
+            // Print list (traversal test)
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            // Test Count
+            Console.WriteLine("Count: " + list.Count);
 
         }
     }
+
+
+            
+    
 }
