@@ -131,35 +131,43 @@ namespace TafesaEnrolmentSystem.Model
         }
 
         // TraversePreOrder
-        public void TraversePreOrder(Node<T> parent)
+
+        // I adapted previous version of code to also output to a list
+        //   for use with NUnit testing (for all traverse methods)
+        public void TraversePreOrder(Node<T> parent, List<T> values)
         {
             if (parent != null)
             {
                 Console.Write(parent.Data + " ");
-                TraversePreOrder(parent.LeftNode);
-                TraversePreOrder(parent.RightNode);
+                values.Add(parent.Data);
+                TraversePreOrder(parent.LeftNode, values);
+                TraversePreOrder(parent.RightNode, values);
             }
         }
 
         // TraverseInOrder (ascending order)
-        public void TraverseInOrder(Node<T> parent)
+        public void TraverseInOrder(Node<T> parent, List<T> values)
         {
             if (parent != null)
             {
-                TraverseInOrder(parent.LeftNode);
+                TraverseInOrder(parent.LeftNode,  values);
                 Console.Write(parent.Data + " ");
-                TraverseInOrder(parent.RightNode);
+                values.Add(parent.Data);
+                TraverseInOrder(parent.RightNode, values);
+                
             }
         }
 
         // TraversePostOrder (LHS, print children first)
-        public void TraversePostOrder(Node<T> parent)
+        public void TraversePostOrder(Node<T> parent, List<T> values)
+
         {
             if (parent != null)
             {
-                TraversePostOrder(parent.LeftNode);
-                TraversePostOrder(parent.RightNode);
+                TraversePostOrder(parent.LeftNode, values);
+                TraversePostOrder(parent.RightNode, values);
                 Console.Write(parent.Data + " ");
+                values.Add(parent.Data);
             }
         }
     }

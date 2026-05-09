@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TafesaEnrolmentSystem
 {
-    internal class SinglyLinkedList<T> : ICollection<T>
+    public class SinglyLinkedList<T> : ICollection<T>
     {
         public SinglyLinkedListNode<T> Head { get; private set; }
         public SinglyLinkedListNode<T> Tail { get; private set; }

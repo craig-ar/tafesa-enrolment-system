@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace TafesaEnrolmentSystem.Model
 {
-    internal class DoublyLinkedList<T> : ICollection<T>
+    public class DoublyLinkedList<T> : ICollection<T>
     {
         
 
