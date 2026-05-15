@@ -30,24 +30,32 @@ namespace TafesaEnrolmentSystem.Model
         /// <returns></returns>
         public static int LinearSearchArray<T>(T[] array, T target) where T : IComparable<T>
         {
-            int i = 0;
-            bool found = false;
-            // while not found and not end of array
-            while (!found && i < array.Length) 
+            try
             {
-                // compare target with current element
-                if (target.CompareTo(array[i]) == 0)
-                    found = true;
+                int i = 0;
+                bool found = false;
+                // while not found and not end of array
+                while (!found && i < array.Length)
+                {
+                    // compare target with current element
+                    if (target.CompareTo(array[i]) == 0)
+                        found = true;
+                    else
+                        // if no match move to next element in array
+                        i++;
+                }
+                if (i < array.Length)
+                    // return index of array element found
+                    return i;
                 else
-                    // if no match move to next element in array
-                    i++; 
+                    // return -1 if not found
+                    return -1;
             }
-            if (i < array.Length)
-                // return index of array element found
-                return i; 
-            else
-                // return -1 if not found
-                return -1; 
+            catch (Exception ex)
+            {
+                Console.WriteLine("Linear Search Error: " + ex.Message);
+                return -1;
+            }
         }
 
         /// <summary>
@@ -72,25 +80,34 @@ namespace TafesaEnrolmentSystem.Model
         /// <returns></returns>
         public static int BinarySearchArray<T>(T[] array, T target) where T : IComparable<T>
         {
-            int min = 0;
-            int max = array.Length - 1;
-            int mid;
-            do
+            try
             {
-                mid = (min + max) / 2;
-                //if the item is found return the index mid
-                if (array[mid].CompareTo(target) == 0)  
-                    return mid;
-                //check if the item wanted is in the top half of the search 
-                if (array[mid].CompareTo(target) < 0)
+                int min = 0;
+                int max = array.Length - 1;
+                int mid;
+                do
+                {
+                    mid = (min + max) / 2;
+                    //if the item is found return the index mid
+                    if (array[mid].CompareTo(target) == 0)
+                        return mid; 
+                    //check if the item wanted is in the top half of the search 
+                    if (array[mid].CompareTo(target) < 0)
                     //the item must be in the upper half, set the min for the search to start at mid +1    
-                    min = mid + 1; 
-                else
+                        min = mid + 1;
+                    else
                     //otherwise the item must be in the lower half, set max to the mid-1
-                    max = mid - 1;
-            } while (min <= max);
-            // -1 is returned when not found
-            return -1;  
+                        max = mid - 1;
+                } while (min <= max);
+                // -1 is returned when not found
+                    return -1;
+            
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Binary Search Error: " + ex.Message);
+                return -1;
+            }
         }
 
         /// <summary>

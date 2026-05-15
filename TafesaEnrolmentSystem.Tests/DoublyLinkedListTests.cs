@@ -25,7 +25,7 @@ namespace TafesaEnrolmentSystem.Tests
         [Test]
         public void AddStudentToHead()
         {
-            //SinglyLinkedList<Student> list = new SinglyLinkedList<Student>();
+
 
             Student student1 = new Student("200100");
 

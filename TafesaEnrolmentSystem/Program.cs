@@ -11,6 +11,28 @@ namespace TafesaEnrolmentSystem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("TEST CODE FOR DEBUGGING BinarySearchArray");
+
+            Student[] students =
+{
+            new Student("100000"),
+            new Student("200000"),
+            new Student("300000"),
+            new Student("400000"),
+            new Student("500000"),
+            new Student("600000"),
+            new Student("700000"),
+            new Student("800000"),
+            new Student("900000")
+};
+            Student target = new Student("300000");
+
+            int result = Utility.BinarySearchArray(students, target);
+
+            Console.WriteLine(result);
+            Console.WriteLine("");
+            Console.WriteLine("");
+
             Console.WriteLine("TEST ADDRESS CLASS");
             Console.WriteLine("");
             Console.WriteLine("Test no-arg constructor (address1):");
